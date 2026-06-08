@@ -56,22 +56,33 @@ l'utilisation des **Signals** pour la gestion d'état, et l'architecture
 ---
 
 ## 📁 Structure du Projet
+
+```
 src/app/
+│
 ├── core/
-│   ├── models/          # Product, User, CartItem, Order
-│   ├── services/        # ProductService, CartService, AuthService,
-│   │                    # WishlistService, ToastService
-│   └── guards/          # authGuard (routes protégées)
+│   ├── models/
+│   │   └── Product, User, CartItem, Order
+│   ├── services/
+│   │   └── ProductService, CartService, AuthService,
+│   │       WishlistService, ToastService
+│   └── guards/
+│       └── authGuard (routes protégées)
+│
 ├── shared/
-│   ├── components/      # Navbar, CartPanel, ProductCard, Toast, Footer
-│   └── pipes/           # MgPricePipe, StarsPipe
+│   ├── components/
+│   │   └── Navbar, CartPanel, ProductCard, Toast, Footer
+│   └── pipes/
+│       └── MgPricePipe, StarsPipe
+│
 └── pages/
-├── home/            # Page d'accueil
-├── shop/            # Boutique + filtres
-├── product-detail/  # Fiche produit
-├── checkout/        # Passage de commande
-├── auth/            # Login + Register
-└── profile/         # Profil utilisateur + Historique
+    ├── home/            → Page d'accueil
+    ├── shop/            → Boutique + filtres
+    ├── product-detail/  → Fiche produit
+    ├── checkout/        → Passage de commande
+    ├── auth/            → Login + Register
+    └── profile/         → Profil utilisateur + Historique
+```
 
 
 ---
