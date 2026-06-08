@@ -96,7 +96,7 @@ src/app/
 
 ```bash
 # Cloner le projet
-git clone https://github.com/TON_USERNAME/madagaming.git
+git clone  https://github.com/FanambyNyAvo/madagaming-UPEF-.git
 cd madagaming
 
 # Installer les dépendances
