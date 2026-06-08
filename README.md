@@ -12,13 +12,10 @@
 
 > **Examen Semestriel — UPEF**
 > 3ème Année — Génie Logiciel & Base de Données
-> Université Professionnelle d'Excellence Fianarantsoa 🇲🇬
+> Université Parcours Études et Formations
 
 Ce projet a été réalisé dans le cadre de l'examen semestriel de 3ème année,
 filière **Génie Logiciel et Base de Données** à l'UPEF.
-Il démontre la maîtrise du développement frontend moderne avec le framework **Angular 19**,
-l'utilisation des **Signals** pour la gestion d'état, et l'architecture
-**standalone components** sans NgModule.
 
 ---
 
