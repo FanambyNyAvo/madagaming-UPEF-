@@ -1,0 +1,56 @@
+<nav>
+  <div class="nav-logo" routerLink="/">
+    <span class="logo-icon">🎮</span>
+    <span class="logo-mada">Mada</span><span class="logo-gaming">Gaming</span>
+  </div>
+
+  <div class="nav-links">
+    <a class="nav-link" routerLink="/" routerLinkActive="active"
+       [routerLinkActiveOptions]="{exact:true}">Accueil</a>
+    <a class="nav-link" routerLink="/shop" routerLinkActive="active"
+       [routerLinkActiveOptions]="{exact:true}">Boutique</a>
+    <button class="nav-link" (click)="navigateToShop('PS5')">PS5</button>
+    <button class="nav-link" (click)="navigateToShop('Xbox')">Xbox</button>
+    <button class="nav-link" (click)="navigateToShop('Nintendo Switch')">Switch</button>
+    <button class="nav-link" (click)="navigateToShop('PC')">PC</button>
+  </div>
+
+  <div class="nav-actions">
+    <input type="text" class="search-input" placeholder="🔍 Rechercher..."
+           [value]="searchQuery()"
+           (input)="onSearch($any($event.target).value)" />
+
+    @if (auth.currentUser()) {
+      <div class="user-menu">
+        <button class="user-btn" (click)="toggleUserMenu()">
+          <span class="user-avatar">
+            {{ auth.currentUser()!.firstName[0] }}{{ auth.currentUser()!.lastName[0] }}
+          </span>
+          <span class="user-name">{{ auth.currentUser()!.firstName }}</span>
+          <span class="chevron">▾</span>
+        </button>
+        @if (menuOpen()) {
+          <div class="user-dropdown">
+            <a class="dropdown-item" routerLink="/profile" (click)="menuOpen.set(false)">
+              👤 Mon Profil
+            </a>
+            <a class="dropdown-item" routerLink="/profile/orders" (click)="menuOpen.set(false)">
+              📦 Mes Commandes
+            </a>
+            <div class="dropdown-divider"></div>
+            <button class="dropdown-item danger" (click)="onLogout()">
+              🚪 Déconnexion
+            </button>
+          </div>
+        }
+      </div>
+    } @else {
+      <a class="login-btn" routerLink="/auth/login">Connexion</a>
+      <a class="register-btn" routerLink="/auth/register">S'inscrire</a>
+    }
+
+    <button class="cart-btn" (click)="cart.togglePanel()">
+      🛒 <span class="cart-count">{{ cart.count() }}</span>
+    </button>
+  </div>
+</nav>

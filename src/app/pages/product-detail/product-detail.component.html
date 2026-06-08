@@ -1,0 +1,73 @@
+@if (product(); as p) {
+  <!-- BREADCRUMB -->
+  <div class="breadcrumb">
+    <span routerLink="/">Accueil</span>
+    <span class="sep">›</span>
+    <span [routerLink]="['/shop']" [queryParams]="{category: p.platform}">{{ p.platform }}</span>
+    <span class="sep">›</span>
+    <span class="current">{{ p.name }}</span>
+  </div>
+
+  <div class="product-detail">
+    <!-- GALLERY -->
+    <div class="detail-gallery">
+      <div class="main-image">{{ p.emoji }}</div>
+      <div class="thumbs">
+        @for (t of thumbs; track $index) {
+          <div class="thumb" [class.active]="activeThumb() === $index"
+               (click)="activeThumb.set($index)">
+            {{ $index === 0 ? p.emoji : t }}
+          </div>
+        }
+      </div>
+    </div>
+
+    <!-- INFO -->
+    <div class="detail-info">
+      <div class="detail-genre">{{ p.genre }} · {{ p.studio }}</div>
+      <h1 class="detail-title">{{ p.name }}</h1>
+
+      <div class="detail-rating">
+        <span class="stars">{{ p.rating | stars }}</span>
+        <span class="rating-meta">{{ p.rating }} · {{ p.reviews }} avis</span>
+      </div>
+
+      <div class="detail-price">
+        <span class="price-big">{{ p.price | mgPrice }}</span>
+        @if (p.oldPrice) {
+          <span class="price-old">{{ p.oldPrice | mgPrice }}</span>
+          <span class="price-discount">-{{ p.discount }}%</span>
+        }
+      </div>
+
+      <p class="detail-desc">{{ p.desc }}</p>
+
+      <div class="option-label">Plateforme</div>
+      <div class="platform-opts">
+        <button class="platform-btn active">{{ p.platform }}</button>
+      </div>
+
+      <div class="qty-row">
+        <div class="option-label" style="margin-bottom:0">Quantité</div>
+        <div class="qty-ctrl">
+          <button class="qty-btn" (click)="changeQty(-1)">−</button>
+          <span class="qty-num">{{ qty() }}</span>
+          <button class="qty-btn" (click)="changeQty(1)">+</button>
+        </div>
+      </div>
+
+      <button class="add-to-cart-btn" (click)="addToCart()">🛒 Ajouter au Panier</button>
+      <button class="btn-secondary" style="width:100%; justify-content:center;"
+              (click)="wishlist.toggle(p.id)">
+        {{ wishlist.has(p.id) ? '♥ Dans les favoris' : '♡ Ajouter aux Favoris' }}
+      </button>
+
+      <div class="features-list">
+        <div class="feature-item"><span class="feature-icon">🚚</span> Livraison gratuite dès 50 000 Ar</div>
+        <div class="feature-item"><span class="feature-icon">✅</span> Produit officiel &amp; authentique</div>
+        <div class="feature-item"><span class="feature-icon">📱</span> Paiement MVola / Airtel Money</div>
+        <div class="feature-item"><span class="feature-icon">🇲🇬</span> Livraison partout à Madagascar</div>
+      </div>
+    </div>
+  </div>
+}

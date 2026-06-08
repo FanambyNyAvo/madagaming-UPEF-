@@ -1,0 +1,72 @@
+<div class="breadcrumb">
+  <span routerLink="/">Accueil</span>
+  <span class="sep">›</span>
+  <span class="current">Mon Profil</span>
+</div>
+
+<div class="profile-page">
+  <div class="profile-sidebar">
+    <div class="avatar-circle">
+      {{ auth.currentUser()?.firstName?.[0] }}{{ auth.currentUser()?.lastName?.[0] }}
+    </div>
+    <div class="profile-name">{{ auth.currentUser()?.firstName }} {{ auth.currentUser()?.lastName }}</div>
+    <div class="profile-email">{{ auth.currentUser()?.email }}</div>
+    <div class="member-since">Membre depuis {{ auth.currentUser()?.createdAt | date:'MMMM yyyy' }}</div>
+
+    <nav class="profile-nav">
+      <a class="pnav-item active" routerLink="/profile">👤 Mon Profil</a>
+      <a class="pnav-item" routerLink="/profile/orders">📦 Mes Commandes</a>
+    </nav>
+  </div>
+
+  <div class="profile-content">
+    <div class="content-header">
+      <h2 class="content-title">Informations personnelles</h2>
+      @if (!editing()) {
+        <button class="btn-secondary" (click)="startEdit()">✏ Modifier</button>
+      }
+    </div>
+
+    @if (!editing()) {
+      <div class="info-grid">
+        <div class="info-item">
+          <div class="info-label">Prénom</div>
+          <div class="info-value">{{ auth.currentUser()?.firstName }}</div>
+        </div>
+        <div class="info-item">
+          <div class="info-label">Nom</div>
+          <div class="info-value">{{ auth.currentUser()?.lastName }}</div>
+        </div>
+        <div class="info-item">
+          <div class="info-label">Email</div>
+          <div class="info-value">{{ auth.currentUser()?.email }}</div>
+        </div>
+        <div class="info-item">
+          <div class="info-label">Téléphone</div>
+          <div class="info-value">{{ auth.currentUser()?.phone || '—' }}</div>
+        </div>
+      </div>
+    } @else {
+      <div class="edit-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Prénom</label>
+            <input type="text" [(ngModel)]="form.firstName" />
+          </div>
+          <div class="form-group">
+            <label>Nom</label>
+            <input type="text" [(ngModel)]="form.lastName" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Téléphone</label>
+          <input type="tel" [(ngModel)]="form.phone" />
+        </div>
+        <div class="edit-actions">
+          <button class="btn-primary" (click)="saveEdit()">Enregistrer</button>
+          <button class="btn-secondary" (click)="editing.set(false)">Annuler</button>
+        </div>
+      </div>
+    }
+  </div>
+</div>

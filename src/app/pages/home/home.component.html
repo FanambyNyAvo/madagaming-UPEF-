@@ -1,0 +1,116 @@
+<!-- PROMO BANNER -->
+<div class="promo-banner">
+  <div class="promo-item">🔥 SOLDES — Jusqu'à -50% sur les jeux PS5</div>
+  <div class="promo-item">🚀 Livraison gratuite dès 50 000 Ar</div>
+  <div class="promo-item">🇲🇬 Livraison partout à Madagascar</div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-scanline"></div>
+  <div class="hero-content">
+    <div class="hero-label">Nouvelle Collection 2026</div>
+    <h1 class="hero-title">
+      <span class="t-white">LEVEL</span><br>
+      <span class="t-red">UP</span><br>
+      <span class="t-blue">YOUR GAME</span>
+    </h1>
+    <p class="hero-desc">
+      La meilleure destination jeux vidéo à Madagascar. PS5, Xbox, Nintendo Switch, PC
+      — les dernières sorties livrées chez vous.
+    </p>
+    <div class="hero-actions">
+      <button class="btn-primary" (click)="navigateToShop()">Voir les Jeux →</button>
+      <button class="btn-secondary" (click)="navigateToShop('Nouveautés')">Nouveautés 2025</button>
+    </div>
+  </div>
+  <div class="hero-visual">🎮</div>
+  <div class="hero-stats">
+    <div class="stat"><span class="stat-num">500+</span><span class="stat-label">Jeux</span></div>
+    <div class="stat"><span class="stat-num">4</span><span class="stat-label">Plateformes</span></div>
+    <div class="stat"><span class="stat-num">24h</span><span class="stat-label">Livraison</span></div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<div class="services-strip">
+  <div class="service-item">
+    <div class="service-icon">🚚</div>
+    <div>
+      <div class="service-title">Livraison Rapide</div>
+      <div class="service-desc">Partout à Madagascar en 24-48h</div>
+    </div>
+  </div>
+  <div class="service-item">
+    <div class="service-icon">🔒</div>
+    <div>
+      <div class="service-title">Paiement Sécurisé</div>
+      <div class="service-desc">Mobile Money & Carte acceptés</div>
+    </div>
+  </div>
+  <div class="service-item">
+    <div class="service-icon">✅</div>
+    <div>
+      <div class="service-title">Produits Authentiques</div>
+      <div class="service-desc">100% officiels, garantis</div>
+    </div>
+  </div>
+  <div class="service-item">
+    <div class="service-icon">💬</div>
+    <div>
+      <div class="service-title">Support 7j/7</div>
+      <div class="service-desc">WhatsApp & Facebook disponibles</div>
+    </div>
+  </div>
+</div>
+
+<!-- CATEGORY PILLS -->
+<div class="categories-strip">
+  @for (cat of productService.categories; track cat) {
+    <span class="cat-pill" (click)="navigateToShop(cat === 'Tous' ? undefined : cat)">{{ cat }}</span>
+  }
+</div>
+
+<!-- PLATFORMS -->
+<div class="platform-section">
+  <div class="section-header" style="margin-bottom:0">
+    <h2 class="section-title">Choisir par <span class="t-red">Plateforme</span></h2>
+  </div>
+  <div class="platform-grid">
+    @for (p of productService.platforms; track p.name) {
+      <div class="platform-card" (click)="navigateToShop(p.route)">
+        <div class="platform-icon">{{ p.icon }}</div>
+        <div class="platform-name">{{ p.name }}</div>
+        <div class="platform-count">{{ p.count }}</div>
+      </div>
+    }
+  </div>
+</div>
+
+<!-- FEATURED -->
+<div class="section">
+  <div class="section-header">
+    <h2 class="section-title">Jeux <span class="t-blue">Populaires</span></h2>
+    <button class="see-all" (click)="navigateToShop()">Voir tout →</button>
+  </div>
+  <div class="products-grid">
+    @for (product of productService.getFeatured(); track product.id) {
+      <app-product-card [product]="product" (quickAdd)="onQuickAdd($event)" />
+    }
+  </div>
+</div>
+
+<!-- NEW ARRIVALS -->
+<div class="section new-section">
+  <div class="section-header">
+    <h2 class="section-title"><span class="t-green">Nouveautés</span> 2026</h2>
+    <button class="see-all" (click)="navigateToShop('Nouveautés')">Voir tout →</button>
+  </div>
+  <div class="products-grid">
+    @for (product of productService.getNew(); track product.id) {
+      <app-product-card [product]="product" (quickAdd)="onQuickAdd($event)" />
+    }
+  </div>
+</div>

@@ -1,0 +1,62 @@
+<div class="cart-overlay" [class.open]="cart.isOpen()" (click)="cart.closePanel()"></div>
+
+<div class="cart-panel" [class.open]="cart.isOpen()">
+  <div class="cart-header">
+    <span class="cart-title">🛒 Mon Panier</span>
+    <button class="cart-close" (click)="cart.closePanel()">×</button>
+  </div>
+
+  <div class="cart-items">
+    @if (cart.items().length === 0) {
+      <div class="cart-empty">
+        <div class="cart-empty-icon">🎮</div>
+        <div class="cart-empty-title">Panier vide</div>
+        <div class="cart-empty-desc">Ajoutez des jeux depuis la boutique</div>
+        <a class="btn-primary" routerLink="/shop" (click)="cart.closePanel()">Voir les Jeux →</a>
+      </div>
+    } @else {
+      @for (item of cart.items(); track item.key) {
+        <div class="cart-item">
+          <div class="cart-item-img">{{ item.product.emoji }}</div>
+          <div class="cart-item-info">
+            <div class="cart-item-brand">{{ item.product.genre }} · {{ item.platform }}</div>
+            <div class="cart-item-name">{{ item.product.name }}</div>
+            <div class="cart-item-variant">Qté: {{ item.qty }}</div>
+            <div class="cart-item-bottom">
+              <span class="cart-item-price">{{ item.product.price * item.qty | mgPrice }}</span>
+              <button class="remove-item" (click)="cart.remove(item.key)">×</button>
+            </div>
+          </div>
+        </div>
+      }
+    }
+  </div>
+
+  @if (cart.items().length > 0) {
+    <div class="cart-footer">
+      <div class="cart-subtotal">
+        <span>Sous-total</span>
+        <span>{{ cart.subtotal() | mgPrice }}</span>
+      </div>
+      <div class="cart-subtotal">
+        <span>Livraison</span>
+        @if (cart.shipping() === 0) {
+          <span class="free-shipping">Gratuite</span>
+        } @else {
+          <span>{{ cart.shipping() | mgPrice }}</span>
+        }
+      </div>
+      <div class="cart-total">
+        <span>Total</span>
+        <span>{{ cart.subtotal() + cart.shipping() | mgPrice }}</span>
+      </div>
+      <a class="checkout-btn" routerLink="/checkout" (click)="cart.closePanel()">
+        Confirmer la Commande →
+      </a>
+      <a class="btn-secondary" style="width:100%; justify-content:center; margin-top:8px; text-decoration:none;"
+         routerLink="/shop" (click)="cart.closePanel()">
+        Continuer les Achats
+      </a>
+    </div>
+  }
+</div>

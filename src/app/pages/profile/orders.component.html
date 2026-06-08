@@ -1,0 +1,67 @@
+<div class="breadcrumb">
+  <span routerLink="/">Accueil</span>
+  <span class="sep">›</span>
+  <span routerLink="/profile">Mon Profil</span>
+  <span class="sep">›</span>
+  <span class="current">Mes Commandes</span>
+</div>
+
+<div class="profile-page">
+  <div class="profile-sidebar">
+    <div class="avatar-circle">
+      {{ auth.currentUser()?.firstName?.[0] }}{{ auth.currentUser()?.lastName?.[0] }}
+    </div>
+    <div class="profile-name">{{ auth.currentUser()?.firstName }} {{ auth.currentUser()?.lastName }}</div>
+    <div class="profile-email">{{ auth.currentUser()?.email }}</div>
+    <nav class="profile-nav">
+      <a class="pnav-item" routerLink="/profile">👤 Mon Profil</a>
+      <a class="pnav-item active" routerLink="/profile/orders">📦 Mes Commandes</a>
+    </nav>
+  </div>
+
+  <div class="profile-content">
+    <div class="content-header">
+      <h2 class="content-title">Mes Commandes</h2>
+      <span class="order-count">{{ orders.length }} commande(s)</span>
+    </div>
+
+    @if (orders.length === 0) {
+      <div class="empty-orders">
+        <div style="font-size:52px;margin-bottom:16px">📦</div>
+        <div style="font-size:18px;font-weight:600;margin-bottom:8px">Aucune commande</div>
+        <div style="color:var(--text-muted);margin-bottom:24px">Vous n'avez pas encore passé de commande.</div>
+        <a class="btn-primary" routerLink="/shop">Découvrir les jeux →</a>
+      </div>
+    } @else {
+      <div class="orders-list">
+        @for (order of orders; track order.id) {
+          <div class="order-card">
+            <div class="order-header">
+              <div>
+                <div class="order-id">{{ order.id }}</div>
+                <div class="order-date">{{ order.date | date:'dd MMMM yyyy' }}</div>
+              </div>
+              <div class="order-right">
+                <span class="order-status" [class]="order.status === 'Livré' ? 'delivered' : order.status === 'Annulé' ? 'cancelled' : 'pending'">
+                  {{ order.status }}
+                </span>
+                <div class="order-total">{{ order.total | mgPrice }}</div>
+              </div>
+            </div>
+            <div class="order-items">
+              @for (item of order.items; track item.productId) {
+                <div class="order-item">
+                  <span class="item-emoji">{{ item.emoji }}</span>
+                  <span class="item-name">{{ item.name }}</span>
+                  <span class="item-platform">{{ item.platform }}</span>
+                  <span class="item-qty">× {{ item.qty }}</span>
+                  <span class="item-price">{{ item.price * item.qty | mgPrice }}</span>
+                </div>
+              }
+            </div>
+          </div>
+        }
+      </div>
+    }
+  </div>
+</div>

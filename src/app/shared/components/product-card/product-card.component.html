@@ -1,0 +1,44 @@
+<div class="product-card" [routerLink]="['/product', product().id]">
+  <div class="product-img">
+    <img [src]="product().image" [alt]="product().name"
+         (error)="onImgError($event)" loading="lazy" />
+
+    @if (product().badge) {
+      <div class="card-badge"
+           [class.sale]="product().badge==='sale'"
+           [class.new]="product().badge==='new'"
+           [class.top]="product().badge==='top'">
+        {{ getBadgeLabel(product().badge!, product().discount) }}
+      </div>
+    }
+
+    <div class="card-overlay">
+      <button class="quick-add" (click)="onQuickAdd($event)">+ Ajouter</button>
+    </div>
+
+    <div class="platform-badge">{{ product().platform }}</div>
+
+    <div class="wishlist-btn" [class.active]="wishlist.has(product().id)"
+         (click)="onToggleWish($event)">
+      {{ wishlist.has(product().id) ? '♥' : '♡' }}
+    </div>
+  </div>
+
+  <div class="card-body">
+    <div class="card-genre">{{ product().genre }}</div>
+    <div class="card-name">{{ product().name }}</div>
+    <div class="card-rating">
+      <span class="stars">{{ product().rating | stars }}</span>
+      <span class="rating-count">({{ product().reviews }})</span>
+    </div>
+    <div class="card-price">
+      <span class="price-current">{{ product().price | mgPrice }}</span>
+      @if (product().oldPrice) {
+        <span class="price-old">{{ product().oldPrice | mgPrice }}</span>
+      }
+      @if (product().discount) {
+        <span class="price-discount">-{{ product().discount }}%</span>
+      }
+    </div>
+  </div>
+</div>

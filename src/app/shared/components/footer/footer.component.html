@@ -1,0 +1,44 @@
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand">
+        <span class="t-white">Mada</span><span class="t-red">Gaming</span>
+      </div>
+      <p class="footer-desc">
+        La meilleure destination jeux vidéo à Madagascar. PS5, Xbox, Nintendo Switch, PC
+        — livraison rapide partout dans l'île.
+      </p>
+    </div>
+    <div>
+      <div class="footer-heading">Boutique</div>
+      <ul class="footer-links">
+        <li><a routerLink="/shop">Tous les jeux</a></li>
+        <li><a [routerLink]="['/shop']" [queryParams]="{category:'Nouveautés'}">Nouveautés</a></li>
+        <li><a [routerLink]="['/shop']" [queryParams]="{category:'Soldes'}">Soldes</a></li>
+        <li><a [routerLink]="['/shop']" [queryParams]="{category:'Accessoires'}">Accessoires</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-heading">Service Client</div>
+      <ul class="footer-links">
+        <li><a href="#">Livraison & délais</a></li>
+        <li><a href="#">Retours & échanges</a></li>
+        <li><a href="#">FAQ</a></li>
+        <li><a href="#">Contactez-nous</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-heading">Info</div>
+      <ul class="footer-links">
+        <li><a href="#">À propos de nous</a></li>
+        <li><a href="#">Conditions de vente</a></li>
+        <li><a href="#">Politique de confidentialité</a></li>
+        <li><a href="#">Programme fidélité</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2026 MadaGaming — Tous droits réservés 🇲🇬</span>
+    <span class="footer-flag">🎮 Made in Madagascar</span>
+  </div>
+</footer>

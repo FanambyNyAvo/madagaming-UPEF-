@@ -1,0 +1,156 @@
+.profile-page {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  min-height: calc(100vh - 120px);
+
+  @media (max-width: 900px) { grid-template-columns: 1fr; }
+}
+
+.profile-sidebar {
+  background: var(--surface);
+  border-right: 1px solid var(--border);
+  padding: 48px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 8px;
+
+  @media (max-width: 900px) { padding: 32px 16px; border-right: none; border-bottom: 1px solid var(--border); }
+}
+
+.avatar-circle {
+  width: 88px;
+  height: 88px;
+  background: linear-gradient(135deg, var(--red), var(--blue));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--white);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.profile-name { font-family: 'Rajdhani', sans-serif; font-size: 22px; font-weight: 700; color: var(--white); }
+.profile-email { font-size: 13px; color: var(--text-muted); }
+.member-since { font-size: 11px; color: var(--text-muted); margin-bottom: 24px; }
+
+.profile-nav { width: 100%; margin-top: 8px; }
+
+.pnav-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  border-radius: var(--radius);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: all 0.2s;
+  width: 100%;
+
+  &:hover { background: var(--surface2); color: var(--white); }
+  &.active { background: rgba(224,48,48,0.12); color: var(--red); }
+}
+
+.profile-content { padding: 48px; @media (max-width: 900px) { padding: 32px 16px; } }
+
+.content-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 32px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.content-title {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+
+  @media (max-width: 600px) { grid-template-columns: 1fr; }
+}
+
+.info-item {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+}
+
+.info-label { font-size: 10px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 6px; }
+.info-value { font-size: 16px; font-weight: 500; color: var(--white); }
+
+.edit-form { max-width: 500px; }
+.edit-actions { display: flex; gap: 12px; margin-top: 20px; }
+
+.empty-orders { text-align: center; padding: 60px 0; color: var(--text-muted); }
+
+.orders-list { display: flex; flex-direction: column; gap: 16px; }
+
+.order-card {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.order-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 18px 20px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.order-id { font-family: 'Rajdhani', sans-serif; font-size: 18px; font-weight: 700; color: var(--white); }
+.order-date { font-size: 12px; color: var(--text-muted); margin-top: 3px; }
+.order-right { text-align: right; display: flex; flex-direction: column; align-items: flex-end; gap: 6px; }
+
+.order-status {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: var(--radius);
+  &.pending  { background: rgba(59,130,246,0.15); color: var(--blue); }
+  &.delivered { background: rgba(34,197,94,0.15); color: var(--green); }
+  &.cancelled { background: rgba(224,48,48,0.15); color: var(--red); }
+}
+
+.order-total { font-family: 'Rajdhani', sans-serif; font-size: 20px; font-weight: 700; color: var(--green); }
+
+.order-items { padding: 12px 20px; }
+
+.order-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 14px;
+  &:last-child { border-bottom: none; }
+}
+
+.item-emoji { font-size: 22px; }
+.item-name { flex: 1; font-weight: 500; }
+.item-platform { font-size: 11px; color: var(--text-muted); background: var(--surface); padding: 2px 8px; border-radius: 4px; }
+.item-qty { color: var(--text-muted); }
+.item-price { font-family: 'Rajdhani', sans-serif; font-size: 16px; font-weight: 700; color: var(--green); margin-left: auto; }
+
+.order-count { font-size: 14px; color: var(--text-muted); }

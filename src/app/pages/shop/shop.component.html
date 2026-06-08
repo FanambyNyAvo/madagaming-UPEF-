@@ -1,0 +1,46 @@
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  <span routerLink="/">Accueil</span>
+  <span class="sep">›</span>
+  <span class="current">{{ currentCategory() === 'Tous' ? 'Boutique' : currentCategory() }}</span>
+</div>
+
+<!-- FILTER CATS -->
+<div class="categories-strip">
+  @for (cat of productService.categories; track cat) {
+    <span class="cat-pill" [class.active]="cat === currentCategory()"
+          (click)="filterBy(cat)">{{ cat }}</span>
+  }
+</div>
+
+<!-- FILTER BAR -->
+<div class="filter-bar">
+  <span class="filter-label">Trier :</span>
+  <select class="sort-select" [value]="currentSort()"
+          (change)="currentSort.set($any($event.target).value)">
+    <option value="default">Par défaut</option>
+    <option value="price-asc">Prix croissant</option>
+    <option value="price-desc">Prix décroissant</option>
+    <option value="name">Nom A–Z</option>
+    <option value="rating">Mieux notés</option>
+  </select>
+  <span class="result-count">
+    {{ filteredProducts().length }} jeu{{ filteredProducts().length > 1 ? 'x' : '' }}
+  </span>
+</div>
+
+<!-- GRID -->
+<div class="section">
+  @if (filteredProducts().length > 0) {
+    <div class="products-grid">
+      @for (product of filteredProducts(); track product.id) {
+        <app-product-card [product]="product" (quickAdd)="onQuickAdd($event)" />
+      }
+    </div>
+  } @else {
+    <div class="empty-state">
+      <div class="empty-icon">🔍</div>
+      <div>Aucun jeu trouvé</div>
+    </div>
+  }
+</div>
