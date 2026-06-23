@@ -1,4 +1,4 @@
-# 🎮 MadaGaming
+# MadaGaming
 
 > La meilleure destination jeux vidéo à Madagascar — PS5, Xbox, Nintendo Switch, PC
 
@@ -8,7 +8,7 @@
 
 ---
 
-## 🎓 Contexte Académique
+## Contexte Académique
 
 > **Examen Semestriel — UPEF**
 > 3ème Année — Génie Logiciel & Base de Données
@@ -27,7 +27,7 @@ filière **Génie Logiciel et Base de Données** à l'UPEF.
 
 ---
 
-## ✨ Fonctionnalités
+## Fonctionnalités
 
 - 🛍️ **Catalogue** de 16 jeux avec vraies pochettes
 - 🔍 **Recherche** et filtres par plateforme, prix, note
@@ -40,7 +40,7 @@ filière **Génie Logiciel et Base de Données** à l'UPEF.
 
 ---
 
-## 🏗️ Stack Technique
+## Stack Technique
 
 | Technologie | Version | Usage |
 |-------------|---------|-------|
@@ -52,7 +52,7 @@ filière **Génie Logiciel et Base de Données** à l'UPEF.
 
 ---
 
-## 📁 Structure du Projet
+## Structure du Projet
 
 ```
 src/app/
@@ -84,7 +84,7 @@ src/app/
 
 ---
 
-## 🚀 Installation & Lancement
+## Installation & Lancement
 
 ### Prérequis
 - Node.js 18+
@@ -107,7 +107,7 @@ Ouvre **http://localhost:4200** dans ton navigateur.
 
 ---
 
-## 🔧 Commandes utiles
+## Commandes utiles
 
 ```bash
 # Développement
@@ -122,7 +122,7 @@ ng build --watch
 
 ---
 
-## 🔐 Authentification
+## Authentification
 
 L'authentification est simulée en local via **localStorage** — pas de backend requis.
 
@@ -134,11 +134,11 @@ L'authentification est simulée en local via **localStorage** — pas de backend
 | Profil | Modification nom, téléphone |
 | Commandes | Historique sauvegardé par utilisateur |
 
-> ⚠️ Les données sont liées au navigateur. Vider le cache supprime les comptes.
+>  Les données sont liées au navigateur. Vider le cache supprime les comptes.
 
 ---
 
-## 🛒 Flux d'achat
+## Flux d'achat
 Catalogue → Fiche produit → Panier → Connexion requise → Checkout → Confirmation
 
 ---
@@ -152,6 +152,6 @@ Conçu spécifiquement pour le marché malgache avec :
 
 ---
 
-## 📄 Licence
+## Licence
 
 MIT © 2026 MadaGaming
