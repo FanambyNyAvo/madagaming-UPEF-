@@ -101,6 +101,8 @@ npm install
 
 # Lancer le serveur de développement
 ng serve
+
+Ouvre **http://localhost:4200** dans ton navigateur.
 ```
 ## ⚠️ Avertissement — Installation
 
@@ -115,9 +117,6 @@ ng serve
 npm audit fix --force  # casse la compatibilité des versions Angular
 ```
 Les avertissements de sécurité restants concernent uniquement les outils de développement (build, dev server) et n'affectent pas l'application en production.
-
-
-Ouvre **http://localhost:4200** dans ton navigateur.
 
 ---
 
