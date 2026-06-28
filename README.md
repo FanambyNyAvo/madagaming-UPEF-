@@ -151,7 +151,8 @@ Conçu spécifiquement pour le marché malgache avec :
 - Livraison partout à **Madagascar**
 
 ---
-
+## NB:
+    aprés quelque difficulté sur les images des vrai jeu ,j'ai choisi d'utiliser des emoji pour les autres jeux
 
 
 Fanamby Ny Avo - UPEF L3 GLBD - Projet framework Angular
