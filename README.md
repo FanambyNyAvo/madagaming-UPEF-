@@ -29,7 +29,7 @@ filière **Génie Logiciel et Base de Données** à l'UPEF.
 
 ## Fonctionnalités
 
-- 🛍️ **Catalogue** de 16 jeux avec vraies pochettes
+- 🛍️ **Catalogue** de 16 jeux
 - 🔍 **Recherche** et filtres par plateforme, prix, note
 - 🛒 **Panier** avec panneau latéral animé
 - ❤️ **Wishlist** persistante
