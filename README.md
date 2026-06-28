@@ -102,6 +102,20 @@ npm install
 # Lancer le serveur de développement
 ng serve
 ```
+## ⚠️ Avertissement — Installation
+
+Ce projet utilise **Angular 19**. Pour éviter des erreurs, **ne pas exécuter** `npm audit fix --force` après l'installation.
+
+```bash
+# ✅ Correct
+npm install
+ng serve
+
+# ❌ À éviter
+npm audit fix --force  # casse la compatibilité des versions Angular
+```
+Les avertissements de sécurité restants concernent uniquement les outils de développement (build, dev server) et n'affectent pas l'application en production.
+
 
 Ouvre **http://localhost:4200** dans ton navigateur.
 
