@@ -143,7 +143,7 @@ Catalogue → Fiche produit → Panier → Connexion requise → Checkout → Co
 
 ---
 
-## 🇲🇬 À propos du projet
+## À propos du projet
 
 Conçu spécifiquement pour le marché malgache avec :
 - Prix en **Ariary (Ar)**
@@ -152,6 +152,6 @@ Conçu spécifiquement pour le marché malgache avec :
 
 ---
 
-## Licence
 
-MIT © 2026 MadaGaming
+
+Fanamby Ny Avo - UPEF L3 GLBD - Projet framework Angular
